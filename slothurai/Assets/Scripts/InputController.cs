@@ -5,11 +5,13 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
 
+    public PlayerMovements playerMovement;
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.I)) 
         {
-            //CALL I FUNCTION
+            playerMovement.Jump();
         }
 
         if(Input.GetKeyDown(KeyCode.J)) 
@@ -19,12 +21,12 @@ public class InputController : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.K)) 
         {
-            //CALL K FUNCTION
+            StartCoroutine(playerMovement.Attack());
         }
 
         if(Input.GetKeyDown(KeyCode.L)) 
         {
-            //CALL L FUNCTION
+            StartCoroutine(playerMovement.Intangible());
         }
     }
 
