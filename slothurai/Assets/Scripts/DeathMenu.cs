@@ -30,6 +30,7 @@ public class DeathMenu : MonoBehaviour
             Time.timeScale = 0f;
            DeathPanel.SetActive(true);
            EventSystem.current.SetSelectedGameObject(ResetB);
+           HC.health = -1;
         }
     }
     public void Reset() 
