@@ -9,6 +9,10 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(Killthisbitch());
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Player") Destroy(this.gameObject);
+    }
+
     IEnumerator Killthisbitch()
     {
         yield return new WaitForSeconds(6f);

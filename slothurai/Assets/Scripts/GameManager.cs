@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public HealthController health;
     public SuggestionController suggestion;
 
+    public ScoreBox[] scoreBoxes;
+
     bool twoLights = false;
     float timeBtwSpawn;
     public float startSpawnTime = 5f;
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int playerHealth = 3;
 
     int suggestionType = 0;
+
+    bool isDefeated;
 
     void Update()
     {

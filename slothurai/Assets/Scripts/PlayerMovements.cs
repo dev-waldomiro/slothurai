@@ -14,6 +14,7 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] float timeForIntangibility = 4f;
     [SerializeField] float timeForAttack = 4f;
 
+
     void Start()
     {
         timeForChange = false;
@@ -28,9 +29,14 @@ public class PlayerMovements : MonoBehaviour
         timeForChange = true;
     }
 
-    public void Crouch ()
+    public IEnumerator Crouch ()
     {
-        //
+        yield return null;
+        bcPlayer.enabled = false;
+        timeForChange = true;
+        yield return new WaitForSeconds(timeForIntangibility);
+        bcPlayer.enabled = true;
+        timeForChange = true;
     }
 
     public IEnumerator Attack ()
