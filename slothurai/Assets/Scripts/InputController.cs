@@ -6,6 +6,8 @@ public class InputController : MonoBehaviour
 {
 
     public PlayerMovements playerMovement;
+
+    Animator animator;
     
     [HideInInspector] public bool jumpOn = true;
     [HideInInspector] public bool crouchOn = true;
@@ -22,7 +24,7 @@ public class InputController : MonoBehaviour
         {
             playedMove = 1;
             if(jumpOn)
-                playerMovement.Jump();
+                StartCoroutine(playerMovement.Jump());
             else { playerMovement.Dizzy();}
         }
 
@@ -30,7 +32,7 @@ public class InputController : MonoBehaviour
         {
             playedMove = 2;
             if(crouchOn) 
-                StartCoroutine(playerMovement.Intangible());
+                StartCoroutine(playerMovement.Crounch());
             else { playerMovement.Dizzy(); }
         }
         

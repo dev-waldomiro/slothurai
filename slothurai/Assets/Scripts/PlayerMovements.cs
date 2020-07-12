@@ -7,6 +7,7 @@ public class PlayerMovements : MonoBehaviour
 {
     public bool timeForChange;
     Transform startPos;
+    Animator animator;
     BoxCollider2D bcPlayer;
     BoxCollider2D attackSpace;
     [SerializeField] float timeForJump = 3.3f;
@@ -22,15 +23,21 @@ public class PlayerMovements : MonoBehaviour
         startPos = this.transform;
         bcPlayer = GetComponent<BoxCollider2D>();
         attackSpace = this.transform.Find("AttackBox").GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
-    public void Jump ()
+    public IEnumerator Jump ()
     {
+        yield return null;
         if(isGrounded())
         {
             transform.DOJump(startPos.position, jumpPower, 1, timeForJump, false);
+            animator.SetBool("isJumping", true);
+            yield return new WaitForSeconds(timeForJump);
+            animator.SetBool("isJumping", false);
             timeForChange = true;
         }
+        animator.SetBool("isJumping", false);
     }
 
     public IEnumerator Attack ()
@@ -38,10 +45,10 @@ public class PlayerMovements : MonoBehaviour
         yield return null;
         attackSpace.enabled = true;
         timeForChange = true;
-        Debug.Log("He attac now");
+        animator.SetBool("isAttacking", true);
         yield return new WaitForSeconds(timeForAttack);
         attackSpace.enabled = false;
-        Debug.Log("But now he aint");
+        animator.SetBool("isAttacking", false);
     }
 
     public IEnumerator Intangible ()
@@ -49,10 +56,22 @@ public class PlayerMovements : MonoBehaviour
         yield return null;
         bcPlayer.enabled = false;
         timeForChange = true;
-        Debug.Log("Is Intangible");
+        animator.SetBool("isIntagible", true);
         yield return new WaitForSeconds(timeForIntangibility);
         bcPlayer.enabled = true;
-        Debug.Log("Now he's not.");
+        animator.SetBool("isIntagible", false);
+        timeForChange = true;
+    }
+
+    public IEnumerator Crounch ()
+    {
+        yield return null;
+        bcPlayer.enabled = false;
+        timeForChange = true;
+        animator.SetBool("isCrouching", true);
+        yield return new WaitForSeconds(timeForIntangibility);
+        bcPlayer.enabled = true;
+        animator.SetBool("isCrouching", false);
         timeForChange = true;
     }
 
@@ -68,4 +87,5 @@ public class PlayerMovements : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.Raycast(bcPlayer.bounds.center, Vector2.down, bcPlayer.bounds.extents.y + extraHeigth, plataform);
         return (raycastHit.collider != null);
     }
+
 }

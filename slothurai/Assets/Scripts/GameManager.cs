@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
             timeBtwSpawn -= Time.deltaTime;
         }
         
-        if(startSpawnTime <= 3) twoLights = true;
+        if(startSpawnTime <= 0.02) twoLights = true;
 
         if(playerC.hasBeenHit)
         {

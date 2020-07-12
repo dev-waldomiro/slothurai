@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    float ref_speed = 5f; //speed reference
+    public float ref_speed = 5f; //speed reference
     public float speed 
     {
         get { return ref_speed; }
