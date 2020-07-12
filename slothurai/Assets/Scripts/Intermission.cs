@@ -14,6 +14,6 @@ public class Intermission : MonoBehaviour
     {
         time+= Time.deltaTime;
         if(time > limit)
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("SampleScene 2");
     }
 }
