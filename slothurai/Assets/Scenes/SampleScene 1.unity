@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1834,6 +1834,9 @@ MonoBehaviour:
   crouchOn: 1
   attackOn: 1
   intangibleOn: 1
+  firstBlock: 0
+  secondBlock: 0
+  playedMove: 0
 --- !u!4 &1368488712
 Transform:
   m_ObjectHideFlags: 0
@@ -1868,6 +1871,7 @@ MonoBehaviour:
   playerC: {fileID: 696587126}
   health: {fileID: 618830213}
   suggestion: {fileID: 0}
+  scoreBoxes: []
   startSpawnTime: 14
   decreaseTime: 0.3
   enemySpeed: 0.3
@@ -2459,6 +2463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pauseme: {fileID: 1304026433}
+  DM: {fileID: 1711963525}
 --- !u!114 &1711963525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2471,6 +2476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c18defcbc9faf4ab7b7cb6ce94362a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: 0
   HC: {fileID: 618830213}
   DeathPanel: {fileID: 971643595}
   ResetB: {fileID: 963045527}
@@ -2535,7 +2541,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
