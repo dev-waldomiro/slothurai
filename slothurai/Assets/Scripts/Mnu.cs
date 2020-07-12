@@ -27,4 +27,8 @@ public Parallax pr;
         SceneManager.LoadScene("InterMission");
         yield break;
     }
+    public void quitG()
+    {
+    Application.Quit();
+    }
 }
