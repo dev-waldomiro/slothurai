@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DeathMenu : MonoBehaviour
 {
-    public static bool death = false;
+    public bool death = false;
     
     public HealthController HC;
 
@@ -18,6 +18,7 @@ public class DeathMenu : MonoBehaviour
 
     void Start()
     {
+        death = false;
         Time.timeScale = 1f;
     }
 
@@ -25,6 +26,7 @@ public class DeathMenu : MonoBehaviour
     {
         if(HC.health == 0)
         {
+            death = true;
             Time.timeScale = 0f;
            DeathPanel.SetActive(true);
            EventSystem.current.SetSelectedGameObject(ResetB);
@@ -33,8 +35,6 @@ public class DeathMenu : MonoBehaviour
     public void Reset() 
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            EventSystem.current.SetSelectedGameObject(null);
-            
         }
     public void Menu()
         {
