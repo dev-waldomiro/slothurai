@@ -2361,7 +2361,7 @@ MonoBehaviour:
     Voices
     Male: Andrew
 
-    Voices Male: Caroline "Luna"
+    Voices Female: Caroline "Luna"
 
     Music: Andrew'
   m_isRightToLeft: 0
@@ -2390,8 +2390,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
