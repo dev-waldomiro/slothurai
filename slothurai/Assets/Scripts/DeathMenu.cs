@@ -28,9 +28,9 @@ public class DeathMenu : MonoBehaviour
         {
             death = true;
             Time.timeScale = 0f;
-           DeathPanel.SetActive(true);
-           EventSystem.current.SetSelectedGameObject(ResetB);
-           HC.health = -1;
+            DeathPanel.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(ResetB);
+            HC.health = -1;
         }
     }
     public void Reset() 
@@ -40,7 +40,7 @@ public class DeathMenu : MonoBehaviour
     public void Menu()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene("MenuScene");
+            SceneManager.LoadScene("StartMenuParallax");
         }
     public void QuitG()
         {
