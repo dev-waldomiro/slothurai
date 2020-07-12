@@ -8,8 +8,8 @@ public class ScoreBox : MonoBehaviour
     public bool killTheGuy = false;
 
     public bool enemyDefeated = false;
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Enemy") 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "Enemy") 
         {
             enemyDefeated = true;
             if(killTheGuy) Destroy(other.gameObject);

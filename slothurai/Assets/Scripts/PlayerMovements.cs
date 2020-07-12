@@ -9,11 +9,12 @@ public class PlayerMovements : MonoBehaviour
     Transform startPos;
     BoxCollider2D bcPlayer;
     BoxCollider2D attackSpace;
-    [SerializeField] float timeForJump = 2f;
+    [SerializeField] float timeForJump = 3.3f;
     [SerializeField] float jumpPower = 4f;
-    [SerializeField] float timeForIntangibility = 4f;
+    [SerializeField] float timeForIntangibility = 8f;
     [SerializeField] float timeForAttack = 4f;
 
+    [SerializeField] LayerMask plataform;
 
     void Start()
     {
@@ -25,18 +26,11 @@ public class PlayerMovements : MonoBehaviour
 
     public void Jump ()
     {
-        transform.DOJump(startPos.position, jumpPower, 1, timeForJump, false);
-        timeForChange = true;
-    }
-
-    public IEnumerator Crouch ()
-    {
-        yield return null;
-        bcPlayer.enabled = false;
-        timeForChange = true;
-        yield return new WaitForSeconds(timeForIntangibility);
-        bcPlayer.enabled = true;
-        timeForChange = true;
+        if(isGrounded())
+        {
+            transform.DOJump(startPos.position, jumpPower, 1, timeForJump, false);
+            timeForChange = true;
+        }
     }
 
     public IEnumerator Attack ()
@@ -66,5 +60,12 @@ public class PlayerMovements : MonoBehaviour
     {
         Debug.Log("Aint working biatch.");
         timeForChange = true;
+    }
+
+    private bool isGrounded()
+    {
+        float extraHeigth = 0.01f;
+        RaycastHit2D raycastHit = Physics2D.Raycast(bcPlayer.bounds.center, Vector2.down, bcPlayer.bounds.extents.y + extraHeigth, plataform);
+        return (raycastHit.collider != null);
     }
 }

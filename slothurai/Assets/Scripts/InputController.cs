@@ -23,13 +23,15 @@ public class InputController : MonoBehaviour
             playedMove = 1;
             if(jumpOn)
                 playerMovement.Jump();
-            else {playerMovement.Dizzy();}
+            else { playerMovement.Dizzy();}
         }
 
         if(Input.GetKeyDown(KeyCode.J)) 
         {
             playedMove = 2;
-            if(crouchOn) {playerMovement.Dizzy();}
+            if(crouchOn) 
+                StartCoroutine(playerMovement.Intangible());
+            else { playerMovement.Dizzy(); }
         }
         
         if(Input.GetKeyDown(KeyCode.K)) 
@@ -37,7 +39,7 @@ public class InputController : MonoBehaviour
             playedMove = 3;
             if(attackOn)
                 StartCoroutine(playerMovement.Attack());
-            else {playerMovement.Dizzy();}
+            else { playerMovement.Dizzy();}
         }
 
         if(Input.GetKeyDown(KeyCode.L)) 
@@ -45,7 +47,7 @@ public class InputController : MonoBehaviour
             playedMove = 4;
             if(intangibleOn)
                 StartCoroutine(playerMovement.Intangible());
-            else {playerMovement.Dizzy();}
+            else { playerMovement.Dizzy();}
         }
     }
 
@@ -56,6 +58,7 @@ public class InputController : MonoBehaviour
         crouchOn = true;
         attackOn = true;
         intangibleOn = true;
+        secondBlock = 0;
 
         int randomNumber = Random.Range(1,5);
 

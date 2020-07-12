@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoreHandler : MonoBehaviour
 {
@@ -8,33 +9,42 @@ public class ScoreHandler : MonoBehaviour
     int lastScore = 0;
     public int combo = 0;
 
-    void Update()
+    TextMeshProUGUI textMeshPro;
+
+    private void Start() 
     {
-        
+        textMeshPro = GetComponent<TextMeshProUGUI>();
     }
 
-    public int ScoreMaker (bool enemyDefeated, int suggestionType, int firstBlock, int secondBlock, int playedMove) 
+    void Update()
     {
-        if(enemyDefeated)
-        {
+        textMeshPro.text = "Score: " + score.ToString();
+    }
+
+    public int ScoreMaker (int suggestionType, int firstBlock, int secondBlock, int playedMove) 
+    {
             if(suggestionType == firstBlock || suggestionType == secondBlock)
             {
-                //give us score and dont change the combo
+                score += 100;
             }
             else if(suggestionType == playedMove)
             {
                 if(combo == 0)
                 {
-                    //give us score, add combo and save last score
+                    lastScore = 200;
+                    score += lastScore;
+                    combo++;
                 } else {
-                    //give us score (based on last score), add combo and save last score
+                    lastScore = lastScore * 2^(combo);
+                    score += lastScore;
+                    combo++;
                 }
             }
             else if(suggestionType != playedMove)
             {
-                //give us score and cut the combo
+                score += 100;
+                combo = 0;
             }
-        }
         return score;
     }
 }

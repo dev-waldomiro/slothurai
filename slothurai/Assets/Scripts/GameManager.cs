@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public PlayerController playerC;
     public HealthController health;
     public SuggestionController suggestion;
+    public ScoreHandler score;
 
     public ScoreBox[] scoreBoxes;
 
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
     int suggestionType = 0;
 
     bool isDefeated;
+
+    int scoreNumber;
 
     void Update()
     {
@@ -60,5 +63,12 @@ public class GameManager : MonoBehaviour
             playerC.hasBeenHit = false;
         }
 
+        if(scoreBoxes[0].enemyDefeated == true || scoreBoxes[1].enemyDefeated == true)
+        {
+            scoreNumber = score.ScoreMaker(suggestionType, input.firstBlock, input.secondBlock, input.playedMove);
+            Debug.Log(scoreNumber);
+            scoreBoxes[0].enemyDefeated = false;
+            scoreBoxes[1].enemyDefeated = false;
+        }
     }
 }
