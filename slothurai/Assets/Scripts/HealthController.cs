@@ -8,6 +8,8 @@ public class HealthController : MonoBehaviour
     int hearts = 3;
     int health;
 
+    public HealthController healthController;
+
     public Image[] heartsDisplayed;
 
     void Start()

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerMovements playerM;
     public PlayerController playerC;
     public HealthController health;
+    public SuggestionController suggestion;
 
     bool twoLights = false;
     float timeBtwSpawn;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public float decreaseTime = 0.4f;
     public float enemySpeed = 0.3f;
     public int playerHealth = 3;
+
+    int suggestionType = 0;
 
     void Update()
     {
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
             spawner.Spawn();
             timeBtwSpawn = startSpawnTime;
             startSpawnTime -= decreaseTime;
+            suggestionType = suggestion.CreateSuggestion();
             //enemy.speed += enemySpeed;
         } else 
         {
