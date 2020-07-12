@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     int hearts = 3;
-    int health;
+    public int health;
 
     public HealthController healthController;
 
