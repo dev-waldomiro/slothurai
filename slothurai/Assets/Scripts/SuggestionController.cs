@@ -10,6 +10,10 @@ public class SuggestionController : MonoBehaviour
     public Sprite attack;
     public Sprite crouch;
     public Sprite jump;
+    public AudioSource jumpS;
+    public AudioSource duckS;
+    public AudioSource attackS;
+    public AudioSource dodgeS;
 
     Image theSuggestion;
 
@@ -46,15 +50,19 @@ public class SuggestionController : MonoBehaviour
         {
             case 1:
                 setJump();
+                jumpS.Play();
                 break;
             case 2:
                 setCrouch();
+                duckS.Play();
                 break;
             case 3:
                 setAttack();
+                attackS.Play();
                 break;
             case 4:
                 setPhase();
+                dodgeS.Play();
                 break;
         } 
         return randomNumber;  

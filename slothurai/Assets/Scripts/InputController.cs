@@ -20,7 +20,7 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I)) 
+        if(Input.GetKeyDown(KeyCode.UpArrow)) 
         {
             playedMove = 1;
             if(jumpOn)
@@ -28,7 +28,7 @@ public class InputController : MonoBehaviour
             else { playerMovement.Dizzy();}
         }
 
-        if(Input.GetKeyDown(KeyCode.J)) 
+        if(Input.GetKeyDown(KeyCode.DownArrow)) 
         {
             playedMove = 2;
             if(crouchOn) 
@@ -36,7 +36,7 @@ public class InputController : MonoBehaviour
             else { playerMovement.Dizzy(); }
         }
         
-        if(Input.GetKeyDown(KeyCode.K)) 
+        if(Input.GetKeyDown(KeyCode.RightArrow)) 
         {
             playedMove = 3;
             if(attackOn)
@@ -44,7 +44,7 @@ public class InputController : MonoBehaviour
             else { playerMovement.Dizzy();}
         }
 
-        if(Input.GetKeyDown(KeyCode.L)) 
+        if(Input.GetKeyDown(KeyCode.LeftArrow)) 
         {
             playedMove = 4;
             if(intangibleOn)

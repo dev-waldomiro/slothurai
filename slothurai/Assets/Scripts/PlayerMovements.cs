@@ -28,7 +28,7 @@ public class PlayerMovements : MonoBehaviour
 
     public IEnumerator Jump ()
     {
-        yield return null;
+        // yield return null;
         if(isGrounded())
         {
             transform.DOJump(startPos.position, jumpPower, 1, timeForJump, false);
@@ -42,7 +42,7 @@ public class PlayerMovements : MonoBehaviour
 
     public IEnumerator Attack ()
     {
-        yield return null;
+        // yield return null;
         attackSpace.enabled = true;
         timeForChange = true;
         animator.SetBool("isAttacking", true);
@@ -53,7 +53,7 @@ public class PlayerMovements : MonoBehaviour
 
     public IEnumerator Intangible ()
     {
-        yield return null;
+        // yield return null;
         bcPlayer.enabled = false;
         timeForChange = true;
         animator.SetBool("isIntagible", true);
@@ -65,7 +65,7 @@ public class PlayerMovements : MonoBehaviour
 
     public IEnumerator Crounch ()
     {
-        yield return null;
+        // yield return null;
         bcPlayer.enabled = false;
         timeForChange = true;
         animator.SetBool("isCrouching", true);
