@@ -39,6 +39,7 @@ public class DeathMenu : MonoBehaviour
         }
     public void Menu()
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene("MenuScene");
         }
     public void QuitG()
